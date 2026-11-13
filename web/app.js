@@ -483,7 +483,7 @@
     if (state.to.name) { q.set("to_name", state.to.name); }
     if (state.from.near) { q.set("from_near", "1"); }
     if (state.to.near) { q.set("to_near", "1"); }
-    return "/gun?" + q.toString();
+    return "/day?" + q.toString();
   }
 
   function setPrice(cell, ds, p) {

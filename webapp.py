@@ -17,7 +17,7 @@ Features:
 
 Architecture: stdlib-only ThreadingHTTPServer + SQLite cache.
   GET /                         -> web/index.html
-  GET /gun?...                  -> web/gun.html
+  GET /day?...                  -> web/day.html
   GET /api/suggest?q=&limit=    -> airport/city suggestions
   GET /api/month?from=&to=&direct=&month=&cur=
   GET /api/day?from=&to=&direct=&date=&price=&cur=
@@ -1137,12 +1137,12 @@ def api_suggest(qs):
 STATIC = {
     "/": ("index.html", "text/html; charset=utf-8"),
     "/index.html": ("index.html", "text/html; charset=utf-8"),
-    "/gun": ("gun.html", "text/html; charset=utf-8"),
-    "/gun.html": ("gun.html", "text/html; charset=utf-8"),
+    "/day": ("day.html", "text/html; charset=utf-8"),
+    "/day.html": ("day.html", "text/html; charset=utf-8"),
     "/style.css": ("style.css", "text/css; charset=utf-8"),
     "/i18n.js": ("i18n.js", "application/javascript; charset=utf-8"),
     "/app.js": ("app.js", "application/javascript; charset=utf-8"),
-    "/gun.js": ("gun.js", "application/javascript; charset=utf-8"),
+    "/day.js": ("day.js", "application/javascript; charset=utf-8"),
     "/auth.js": ("auth.js", "application/javascript; charset=utf-8"),
 }
 

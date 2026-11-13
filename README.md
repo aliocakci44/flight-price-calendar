@@ -120,7 +120,7 @@ rpc_transport.py           Google Flights RPC transport (request building + pars
 collectors/google_flights.py   Payload decoding helpers (flight rows, TFS encoder)
 web/                       Static UI (vanilla JS, no build step)
   index.html / app.js      Monthly calendar page
-  gun.html / gun.js        Day page ("gün" = day in Turkish)
+  day.html / day.js        Day page
   login.html / register.html / auth.js   Auth pages (+ Turnstile support)
   i18n.js                  UI translations (11 languages)
   style.css                Shared styles (dark theme, responsive)
