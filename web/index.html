@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flight Price Calendar</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="langsel">
+    <select id="lang" aria-label="Language" data-i18n-aria="lang_label"></select>
+  </div>
+  <div class="brand">
+    <h1><span aria-hidden="true">&#9992;</span> <span data-i18n="title">Flight Price Calendar</span></h1>
+    <p class="sub" data-i18n="sub">Google Flights calendar prices &middot; click a day to see the cheapest ticket for that day</p>
+  </div>
+</header>
+
+<main>
+  <form id="route-form" class="panel" autocomplete="off" novalidate>
+    <label class="check" for="direct">
+      <input type="checkbox" id="direct" checked>
+      <span data-i18n="direct">Nonstop flights only (no connections)</span>
+    </label>
+
+    <div class="controls">
+      <div class="field combo" id="from-field">
+        <label for="from" data-i18n="from">From</label>
+        <div class="combowrap">
+          <input id="from" name="from" type="text" placeholder="Airport or city"
+                 data-i18n-ph="input_ph"
+                 spellcheck="false" autocomplete="off" role="combobox"
+                 aria-autocomplete="list" aria-expanded="false"
+                 aria-controls="from-list"
+                 aria-label="Departure airport or city" data-i18n-aria="from_aria">
+          <div id="from-list" class="suggest" role="listbox" hidden></div>
+        </div>
+        <div id="from-chips" class="chips"></div>
+        <label class="nearby" for="from-nearby"
+               title="Also search the other airports of the same city (Skyscanner city group)"
+               data-i18n-title="nearby_title">
+          <input type="checkbox" id="from-nearby">
+          <span data-i18n="nearby">Include nearby airports</span>
+        </label>
+        <div id="from-nearby-note" class="nearby-note"
+             role="status" aria-live="polite"></div>
+      </div>
+
+      <button type="button" id="swap" class="swap" title="Swap"
+              data-i18n-title="swap_title"
+              aria-label="Swap departure and arrival" data-i18n-aria="swap_aria">&#8646;</button>
+
+      <div class="field combo" id="to-field">
+        <label for="to" data-i18n="to">To</label>
+        <div class="combowrap">
+          <input id="to" name="to" type="text" placeholder="Airport or city"
+                 data-i18n-ph="input_ph"
+                 spellcheck="false" autocomplete="off" role="combobox"
+                 aria-autocomplete="list" aria-expanded="false"
+                 aria-controls="to-list"
+                 aria-label="Arrival airport or city" data-i18n-aria="to_aria">
+          <div id="to-list" class="suggest" role="listbox" hidden></div>
+        </div>
+        <div id="to-chips" class="chips"></div>
+        <label class="nearby" for="to-nearby"
+               title="Also search the other airports of the same city (Skyscanner city group)"
+               data-i18n-title="nearby_title">
+          <input type="checkbox" id="to-nearby">
+          <span data-i18n="nearby">Include nearby airports</span>
+        </label>
+        <div id="to-nearby-note" class="nearby-note"
+             role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="field curfield">
+        <label for="cur" data-i18n="currency">Currency</label>
+        <select id="cur" name="cur">
+          <option value="EUR">EUR · €</option>
+          <option value="USD">USD · $</option>
+          <option value="GBP">GBP · £</option>
+          <option value="TRY">TRY · ₺</option>
+          <option value="CHF">CHF</option>
+          <option value="PLN">PLN · zł</option>
+          <option value="CZK">CZK · Kč</option>
+          <option value="HUF">HUF · Ft</option>
+          <option value="RON">RON · lei</option>
+          <option value="BGN">BGN · лв</option>
+          <option value="SEK">SEK · kr</option>
+          <option value="NOK">NOK · kr</option>
+          <option value="DKK">DKK · kr</option>
+          <option value="CAD">CAD · C$</option>
+          <option value="AUD">AUD · A$</option>
+          <option value="JPY">JPY · ¥</option>
+          <option value="AED">AED</option>
+        </select>
+      </div>
+
+      <button type="submit" class="go" data-i18n="go">Show prices</button>
+    </div>
+
+    <div id="form-msg" class="msg" role="status" aria-live="polite"></div>
+    <div id="route-summary" class="route-summary"></div>
+  </form>
+
+  <div class="legendbar">
+    <span class="legend"><i style="background:hsl(140,72%,58%)"></i><span data-i18n="legend_cheap">cheap</span></span>
+    <span class="legend"><i style="background:hsl(70,72%,58%)"></i><span data-i18n="legend_mid">mid-range</span></span>
+    <span class="legend"><i style="background:hsl(0,72%,58%)"></i><span data-i18n="legend_exp">expensive</span></span>
+    <span class="legend"><i class="empty"></i><span data-i18n="legend_none">no price</span></span>
+    <span class="legend"><i class="best"></i><span data-i18n="legend_best">cheapest day of the month</span></span>
+  </div>
+
+  <div id="months" class="months" aria-live="polite"></div>
+
+  <footer>
+    <p data-i18n="footer_cal">Prices come from the Google Flights calendar; every request is
+    cookie-free and standalone. Purchases are completed on Google Flights.</p>
+  </footer>
+</main>
+
+<script src="/i18n.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

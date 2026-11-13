@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="authbody">
+<header class="top">
+  <div class="langsel">
+    <select id="lang" aria-label="Language" data-i18n-aria="lang_label"></select>
+  </div>
+</header>
+
+<main class="authwrap">
+  <form id="authform" class="authbox" method="post" action="/login">
+    <h1><span aria-hidden="true">&#9992;</span> <span data-i18n="title">Flight Price Calendar</span></h1>
+
+    <h2 data-i18n="lg_title">Sign in</h2>
+    <p id="errmsg" class="autherr" hidden></p>
+
+    <label for="username" data-i18n="lg_user">Username</label>
+    <input id="username" name="username" maxlength="20"
+           autocomplete="username" spellcheck="false" required autofocus>
+
+    <label for="password" data-i18n="lg_pass">Password</label>
+    <input id="password" name="password" type="password"
+           autocomplete="current-password" required>
+
+    <div id="tsbox" data-sitekey="__TS_SITE__"></div>
+
+    <button type="submit" class="go" data-i18n="lg_signin">Sign in</button>
+
+    <p class="authlinks">
+      <span data-i18n="lg_need">No account yet?</span>
+      <a href="/register" data-i18n="rg_create">Create account</a>
+    </p>
+    <p class="authlinks dim">
+      <a href="/" data-i18n="lg_tosite">Back to the calendar</a>
+    </p>
+  </form>
+</main>
+
+<script src="/i18n.js"></script>
+<script src="/auth.js"></script>
+</body>
+</html>

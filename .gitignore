@@ -1,0 +1,15 @@
+# Runtime data (created on first run)
+data/
+*.db
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

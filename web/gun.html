@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tickets</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="langsel">
+    <select id="lang" aria-label="Language" data-i18n-aria="lang_label"></select>
+  </div>
+  <div class="brand">
+    <a id="back" class="back" href="/">&#8592; <span data-i18n="back">Back to calendar</span></a>
+    <h1 id="title">Tickets</h1>
+    <p id="sub" class="sub"></p>
+  </div>
+</header>
+
+<main class="daypage">
+  <div id="note" class="note" role="status" aria-live="polite" data-i18n="loading">Loading…</div>
+  <div id="app" class="tickets"></div>
+  <footer>
+    <p data-i18n="footer_day">Purchases are completed on Google Flights. This site only
+    shows prices; it does not book.</p>
+  </footer>
+</main>
+
+<script src="/i18n.js"></script>
+<script src="/gun.js"></script>
+</body>
+</html>
